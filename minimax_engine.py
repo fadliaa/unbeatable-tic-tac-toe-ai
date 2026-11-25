@@ -30,18 +30,26 @@ def create_board() -> Board:
     return [EMPTY] * 9
 
 
+def _validate_board(board: Sequence[str]) -> None:
+    if len(board) != 9:
+        raise ValueError(f"Tic-Tac-Toe board must contain exactly 9 cells, got {len(board)}.")
+
+
 def check_win(board: Sequence[str], player: str) -> bool:
     """Return True if `player` has three in a row on `board`."""
+    _validate_board(board)
     return any(board[a] == board[b] == board[c] == player for a, b, c in WIN_COMBOS)
 
 
 def is_full(board: Sequence[str]) -> bool:
     """Return True if no empty cells remain on `board`."""
+    _validate_board(board)
     return all(cell != EMPTY for cell in board)
 
 
 def available_moves(board: Sequence[str]) -> List[int]:
     """Return indices of all currently unoccupied squares."""
+    _validate_board(board)
     return [idx for idx, cell in enumerate(board) if cell == EMPTY]
 
 

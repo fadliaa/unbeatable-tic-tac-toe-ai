@@ -1,8 +1,16 @@
 # Unbeatable Tic-Tac-Toe AI (Minimax + Tkinter)
 
-An interactive desktop Tic-Tac-Toe application powered by a **depth-weighted recursive Minimax** search engine, mathematically proven via exhaustive state-space testing to **never lose** from any starting position.
+## What It Does
 
-## Architecture
+An interactive desktop Tic-Tac-Toe application powered by a **depth-weighted recursive Minimax** search engine, mathematically proven via exhaustive state-space testing to **never lose** from any starting position—whether the human or the AI moves first.
+
+## Tech Stack
+
+- **Language:** Python 3.11+ (zero external dependencies)
+- **GUI:** Tkinter (standard library)
+- **Algorithm & Testing:** Recursive Depth-Weighted Minimax Search, `unittest`
+
+## Project Structure
 
 ```text
 ├── minimax_engine.py      # Pure game-state logic & depth-weighted Minimax solver
@@ -17,7 +25,7 @@ An interactive desktop Tic-Tac-Toe application powered by a **depth-weighted rec
 - **Zero External Dependencies:** Runs entirely on the Python standard library (`tkinter`, `unittest`).
 - **Exhaustively Verified:** Automated test suite traverses every reachable human move sequence and asserts **0 human wins**.
 
-## Quick Start
+## How to Run
 
 ```bash
 # Run the interactive desktop game

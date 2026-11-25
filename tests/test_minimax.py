@@ -2,8 +2,12 @@
 
 from __future__ import annotations
 
+import sys
 import unittest
+from pathlib import Path
 from typing import Dict, Tuple
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from minimax_engine import (
     AI,
@@ -27,6 +31,12 @@ class TestMinimaxUnbeatability(unittest.TestCase):
     def test_takes_immediate_winning_move(self) -> None:
         board = ["O", "O", " ", "X", "X", " ", " ", " ", " "]
         self.assertEqual(find_best_move(board), 2)
+
+    def test_full_board_returns_none_and_invalid_board_raises(self) -> None:
+        full_board = ["X", "O", "X", "X", "O", "O", "O", "X", "X"]
+        self.assertIsNone(find_best_move(full_board))
+        with self.assertRaises(ValueError):
+            find_best_move(["X", "O"])
 
     def test_exhaustive_ai_never_loses_when_human_starts(self) -> None:
         memo: Dict[Tuple[str, ...], str] = {}
